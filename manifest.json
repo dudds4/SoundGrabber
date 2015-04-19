@@ -1,0 +1,35 @@
+{
+	"name": "SoundGrabber",
+	"version": "1.0.0",
+	"manifest_version": 2,
+
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	},
+
+	"content_scripts": [
+		{
+			"matches": [ "http://soundcloud.com/*" ,  "https://soundcloud.com/*" ],
+			"js": ["jquery.js", "sc-content.js"]
+		},
+		{
+			"matches": [ "http://www.youtube.com/*" ,  "https://www.youtube.com/*" ],
+			"js": ["jquery.js", "youtube-content.js"]
+		}
+	],
+	
+	"page_action": {
+		"default_icon": {
+			"19": "icon.png",
+			"38": "icon.png"
+		},
+		"default_title": "Sound Grabber"
+	},
+	
+	"permissions": [
+		"tabs" ,
+		"http://www.peggo.co/*",
+		"http://peggo.co/*"
+	]
+}
